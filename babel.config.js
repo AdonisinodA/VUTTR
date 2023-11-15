@@ -1,4 +1,4 @@
- const config = {
+module.exports = {
     presets: [
       [
         '@babel/preset-env',
@@ -24,5 +24,3 @@
       '**/*.spec.ts'
     ]
   }
-
-export default config
