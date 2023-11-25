@@ -10,8 +10,8 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "dev": "tsx watch --ignore node_modules src/index.ts",
-    "test": "jest",
-    "test:dev": "jest --watchAll --coverage=false",
+    "test": "jest --detectOpenHandles --watchAll --coverage=false",
+    "test:cov": "jest --detectOpenHandles",
     "start": "node dist/index.js"
   },
   "engines": {
@@ -41,6 +41,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "supertest": "^6.3.3"
   }
 }
