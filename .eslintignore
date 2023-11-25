@@ -2,3 +2,4 @@ dist
 /*.js
 jest.config.ts
 babel.config.js
+test/**
