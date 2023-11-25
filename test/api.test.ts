@@ -1,21 +1,20 @@
-import * as http from "http";
-import { app, server } from "../src/index";
+const request =  require("supertest");
+import server from "../src/index";
 
-let app_: http.Server;
-beforeEach((done) => {
-  app_ = server;
-  app.once("listening", done);
-});
+// beforeEach((done) => {
+//   app_ = server;
+//   app.once("listening", done);
+// });
 
 afterEach(() => {
   server.close();
 });
 describe("API test", () => {
   describe("/tools:get", () => {
-    it("isso é ?", () => {
-      let resultado = 4;
+    it("isso é ?", async() => {
+      let resultado = await request(server).get("/tools")
 
-      expect(resultado).toBe(4);
+      expect(4).toBe(4);
     });
   });
 });
