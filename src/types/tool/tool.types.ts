@@ -1,5 +1,5 @@
 export interface IToll {
-  id: number
+  id: string
   nome: string
   link: string
   descricao: string

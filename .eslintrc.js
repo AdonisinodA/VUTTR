@@ -16,6 +16,9 @@ module.exports = {
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/await-thenable": "off",
+    "semi": "off",
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/no-misused-promises": "off"
   },
 };
 

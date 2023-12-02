@@ -1,27 +1,27 @@
+import ToolsRepository from '../repository/tool.repository'
 import { type IToll, type ITollDTO } from '../types/tool/tool.types'
+import { type BaseService } from './base.service'
 
-interface IToolService {
-  getAll: () => Promise<IToll[]>
-  getOne: (tag: string) => Promise<IToll>
-  create: (tool: ITollDTO) => Promise<IToll>
-  delete: (id: string) => Promise<boolean>
-}
-
-class Tool implements IToolService {
-  async getAll (): Promise<IToll[]> {
-    throw new Error('Method not implemented.')
+class Tool implements BaseService {
+  private readonly Toolservice: ToolsRepository
+  constructor () {
+    this.Toolservice = new ToolsRepository()
   }
 
-  async getOne (tag: string): Promise<IToll> {
-    throw new Error('Method not implemented.')
+  async getAll (): Promise<IToll[] | null> {
+    return await this.Toolservice.find()
   }
 
-  async create (tool: ITollDTO): Promise<IToll> {
-    throw new Error('Method not implemented.')
+  async getByTag (tag: string): Promise<IToll[] | null> {
+    return await this.Toolservice.find(tag)
+  }
+
+  async create (tool: ITollDTO): Promise<IToll | null> {
+    return await this.Toolservice.insert(tool)
   }
 
   async delete (id: string): Promise<boolean> {
-    throw new Error('Method not implemented.')
+    return await this.Toolservice.delete(id)
   }
 }
 

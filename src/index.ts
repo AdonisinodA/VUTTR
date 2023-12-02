@@ -1,7 +1,7 @@
 import express from 'express'
 import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import router from './controllers/tools.controller'
+import router from './routes/tool.route'
 
 const PORT = 3000
 const app = express()

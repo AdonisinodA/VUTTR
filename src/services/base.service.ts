@@ -2,8 +2,8 @@
 import { type IToll, type ITollDTO } from '../types/tool/tool.types';
 
 export abstract class BaseService {
-  abstract getAll (): Promise<IToll[]>
-  abstract getOne (tag: string): Promise<IToll>
-  abstract create (tool: ITollDTO): Promise<IToll>
-  abstract delete (id: string): Promise<boolean>
+  abstract getAll (): Promise<IToll[] | null>
+  abstract getByTag (tag: string): Promise<IToll[] | null>
+  abstract create (tool: ITollDTO): Promise<IToll | null>
+  abstract delete (id: string | null): Promise<boolean>
 }

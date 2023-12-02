@@ -1,10 +1,6 @@
 const request =  require("supertest");
 import server from "../src/index";
 
-// beforeEach((done) => {
-//   app_ = server;
-//   app.once("listening", done);
-// });
 
 afterEach(() => {
   server.close();
