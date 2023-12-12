@@ -20,7 +20,7 @@ class Tool implements BaseService {
     return await this.Toolservice.insert(tool)
   }
 
-  async delete (id: string): Promise<boolean> {
+  async delete (id: number): Promise<boolean> {
     return await this.Toolservice.delete(id)
   }
 }

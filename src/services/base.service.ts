@@ -5,5 +5,5 @@ export abstract class BaseService {
   abstract getAll (): Promise<IToll[] | null>
   abstract getByTag (tag: string): Promise<IToll[] | null>
   abstract create (tool: ITollDTO): Promise<IToll | null>
-  abstract delete (id: string | null): Promise<boolean>
+  abstract delete (id: number | null): Promise<boolean>
 }

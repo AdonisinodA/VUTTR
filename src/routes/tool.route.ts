@@ -5,11 +5,7 @@ const router = Router()
 const RouteBase = '/tools'
 
 router.get(`${RouteBase}`, ToolController.getTool)
-router.post(`${RouteBase}`, (req, res) => {
-  console.log(req.params, 'params')
-  console.log(req.query, 'query')
-  res.send('post')
-})
-router.delete(`${RouteBase}`, (req, res) => res.send('hello world'))
+router.post(`${RouteBase}`, ToolController.createTool)
+router.delete(`${RouteBase}/:id`, ToolController.deleteTool)
 
 export default router
