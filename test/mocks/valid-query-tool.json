@@ -1,7 +1,14 @@
-{
+[{
   "description": "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
   "id": 2,
   "link": "https://github.com/typicode/json-server",
-  "tags": ["api", "json", "schema", "node", "github", "rest"],
+  "tags": [
+    "api",
+    "json",
+    "schema",
+    "node",
+    "github",
+    "rest"
+  ],
   "title": "json-server"
-}
+}]
