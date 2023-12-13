@@ -1,4 +1,4 @@
-import ToolsRepository from '../repository/tool.repository'
+import ToolsRepository from '../database/repositories/tool.repository'
 import { type IToll, type ITollDTO } from '../types/tool/tool.types'
 import { type BaseService } from './base.service'
 

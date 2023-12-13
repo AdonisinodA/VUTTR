@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { environment } from '../config'
-import { type IToll, type ITollDTO } from '../types/tool/tool.types'
+import { environment } from '../../config'
+import { type IToll, type ITollDTO } from '../../types/tool/tool.types'
 class ToolsRepository {
   private readonly file: boolean
   constructor () {
@@ -10,7 +10,7 @@ class ToolsRepository {
 
   async find (tag?: string): Promise<IToll[] | null> {
     if (this.file) {
-      const srcDataBase = join(__dirname, '..', '..', 'database', 'tools.json')
+      const srcDataBase = join(__dirname, '..', '..', '..', 'database', 'tools.json')
       const fileDatabase: IToll[] = JSON.parse(readFileSync(srcDataBase, 'utf8'))
       if (tag !== undefined) {
         return fileDatabase.filter((e) => e.tags.includes(tag))
@@ -22,7 +22,7 @@ class ToolsRepository {
 
   async insert (tool: ITollDTO): Promise<IToll | null> {
     if (this.file) {
-      const srcDataBase = join(__dirname, '..', '..', 'database', 'tools.json')
+      const srcDataBase = join(__dirname, '..', '..', '..', 'database', 'tools.json')
       const fileDatabase: IToll[] = JSON.parse(readFileSync(srcDataBase, 'utf8'))
       const id = Math.floor(Math.random() * 2000)
       const newTool: IToll = {
@@ -39,7 +39,7 @@ class ToolsRepository {
 
   async delete (id: number): Promise<boolean> {
     if (this.file) {
-      const srcDataBase = join(__dirname, '..', '..', 'database', 'tools.json')
+      const srcDataBase = join(__dirname, '..', '..', '..', 'database', 'tools.json')
       const fileDatabase: IToll[] = JSON.parse(readFileSync(srcDataBase, 'utf8'))
       const toolsSave = JSON.stringify(fileDatabase.filter((tool) => tool.id !== id))
       writeFileSync(srcDataBase, toolsSave)
