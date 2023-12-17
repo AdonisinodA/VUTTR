@@ -9,7 +9,7 @@ class ToolsRepository {
     this.file = environment === 'test'
   }
 
-  async find (tag?: string): Promise<IToll[] | null> {
+  async find (tag?: string): Promise< any> {
     if (this.file) {
       const srcDataBase = join(__dirname, '..', '..', '..', 'database', 'tools.json')
       const fileDatabase: IToll[] = JSON.parse(readFileSync(srcDataBase, 'utf8'))
@@ -18,7 +18,8 @@ class ToolsRepository {
       }
       return fileDatabase
     }
-    const result = await TollSchema.find({ tag })
+    const result = await TollSchema.find({ tag: { $in: tag } }).lean()
+    console.log('🚀 ~ file: tool.repository.ts:22 ~ ToolsRepository ~ find ~ result:', result)
     return result
   }
 

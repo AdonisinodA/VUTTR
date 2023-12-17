@@ -1,12 +1,7 @@
 import mongoose from 'mongoose'
 
 const tollSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true
-  },
-  nome: {
+  title: {
     type: String,
     required: true
   },
@@ -14,7 +9,7 @@ const tollSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  descricao: {
+  description: {
     type: String,
     required: true
   },

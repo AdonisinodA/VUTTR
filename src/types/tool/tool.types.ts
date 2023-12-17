@@ -1,14 +1,14 @@
 export interface IToll {
   id: number
-  nome: string
+  title: string
   link: string
-  descricao: string
+  description: string
   tags: string[]
 }
 
 export interface ITollDTO {
-  nome: string
+  title: string
   link: string
-  descricao: string
+  description: string
   tags: string[]
 }
