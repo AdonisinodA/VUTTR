@@ -21,6 +21,7 @@ describe("API test", () => {
   describe("/tools:GET", () => {
     it("sucesso listando todos", async () => {
       let {_body} = await request(server).get("/tools");
+      console.log("🚀 ~ file: api.test.ts:24 ~ it ~ _body:", _body)
       expect(_body).toEqual(validListTools);
     });
   });
@@ -28,13 +29,14 @@ describe("API test", () => {
   describe("/tools?tag=?:GET", () => {
     it("sucesso buscando uma ferramenta", async () => {
       let {_body} = await request(server).get("/tools?tag=json");
+      console.log("🚀 ~ file: api.test.ts:24 ~ it ~ _body:", _body)
       expect(_body).toEqual(validQueryTool);
     });
   });
 
 
   describe("/tools?tag=?:POST", () => {
-    it("sucesso listando todos", async () => {
+    it("sucesso criando ferramenta", async () => {
       const payload = {
         description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
         link: "https://www.fastify.io/",
@@ -49,6 +51,7 @@ describe("API test", () => {
         title: "fastify"
     }
       let {_body} = await request(server).post("/tools?tag=json").send(payload)
+      console.log("🚀 ~ file: api.test.ts:54 ~ it ~ _body:", _body)
       expect(_body.id).toBeGreaterThanOrEqual(1);
       expect(_body.id).toBeLessThanOrEqual(1999);
     });
