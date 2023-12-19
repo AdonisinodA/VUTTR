@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const tollSchema = new mongoose.Schema({
+const toolSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -19,6 +19,6 @@ const tollSchema = new mongoose.Schema({
   }
 });
 
-const TollSchema = mongoose.model('tool', tollSchema);
+const ToolSchema = mongoose.model('tool', toolSchema);
 
-export { TollSchema };
+export { ToolSchema };

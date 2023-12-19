@@ -1,9 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/semi
-import { type IToll, type ITollDTO } from '../types/tool/tool.types';
+import { type ITool, type IToolDTO } from '../types/tool/tool.types';
+import { type responseDatabase } from '../utils/responseDatabase';
 
-export abstract class BaseService {
-  abstract getAll (): Promise<IToll[] | null>
-  abstract getByTag (tag: string): Promise<IToll[] | null>
-  abstract create (tool: ITollDTO): Promise<IToll | null>
-  abstract delete (id: number | null): Promise<boolean>
+export abstract class BaseService<T, R> {
+  abstract getAll (): Promise<T | R>
+  abstract getByTag (): Promise<T | R>
+  abstract create (): Promise<T | R>
+  abstract delete (): Promise<boolean>
 }

@@ -11,7 +11,7 @@ module.exports = {
     project: "tsconfig.json",
     tsconfigRootDir: __dirname,
   },
-  ignorePatterns: [".eslintrc.cjs"],
+  ignorePatterns: [".eslintrc.cjs", "./src"],
   rules: {
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/no-unused-vars": "off",

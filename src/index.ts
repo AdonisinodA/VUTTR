@@ -4,22 +4,20 @@ import { join } from 'path'
 import router from './routes/tool.route'
 import mongoose from 'mongoose'
 import { databaseUri, environment } from './config'
-import { TollSchema } from './database/schemas/tool.schema'
+import { ToolSchema } from './database/schemas/tool.schema'
 import baseDados from '../database/base.json'
 
 mongoose.connect(databaseUri as string).then(async () => {
   console.log('Database connect!')
   if (environment === 'dev') {
-    baseDados.forEach(async (tool) => {
-      const { id, ...rest } = tool
-      const newTool = new TollSchema(rest)
-      const verifyTool = await TollSchema.findById(newTool._id).lean()
-      console.log('🚀 ~ file: index.ts:17 ~ mongoose.connect ~ verifyTool:', verifyTool)
-      if (verifyTool === null) {
+    const verifyTool = await ToolSchema.find({}).lean()
+    if (verifyTool.length === 0) {
+      baseDados.forEach(async (tool) => {
+        const { id, ...rest } = tool
+        const newTool = new ToolSchema(rest)
         await newTool.save()
-      }
-      console.log('passou')
-    });
+      });
+    }
   }
 }).catch((error: any) => {
   console.log('🚀 ~ file: index.ts:13 ~ mongoose.connect ~ error:', error)

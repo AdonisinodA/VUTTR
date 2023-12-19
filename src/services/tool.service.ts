@@ -1,22 +1,23 @@
 import ToolsRepository from '../database/repositories/tool.repository'
-import { type IToll, type ITollDTO } from '../types/tool/tool.types'
+import { type ITool, type IToolDTO } from '../types/tool/tool.types'
+import { type responseDatabase } from '../utils/responseDatabase'
 import { type BaseService } from './base.service'
 
-class Tool implements BaseService {
+class Tool implements BaseService<responseDatabase<IToolDTO> | Array<responseDatabase<IToolDTO>>, ITool | ITool[]> {
   private readonly Toolservice: ToolsRepository
   constructor () {
     this.Toolservice = new ToolsRepository()
   }
 
-  async getAll (): Promise<IToll[] | null> {
+  async getAll (): Promise<Array<responseDatabase<IToolDTO>> | ITool[]> {
     return await this.Toolservice.find()
   }
 
-  async getByTag (tag: string): Promise<IToll[] | null> {
+  async getByTag (tag: string): Promise<Array<responseDatabase<IToolDTO>> | ITool[]> {
     return await this.Toolservice.find(tag)
   }
 
-  async create (tool: ITollDTO): Promise<IToll | null> {
+  async create (tool: IToolDTO): Promise<responseDatabase<IToolDTO> | ITool> {
     return await this.Toolservice.insert(tool)
   }
 

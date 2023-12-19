@@ -1,4 +1,4 @@
-export interface IToll {
+export interface ITool {
   id: number
   title: string
   link: string
@@ -6,7 +6,7 @@ export interface IToll {
   tags: string[]
 }
 
-export interface ITollDTO {
+export interface IToolDTO {
   title: string
   link: string
   description: string
