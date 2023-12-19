@@ -39,7 +39,6 @@ class ToolsRepository {
       return newTool
     }
     const result = await new ToolSchema(tool).save()
-    console.log('🚀 ~ file: tool.repository.ts:40 ~ ToolsRepository ~ insert ~ result:', result)
     return result
   }
 

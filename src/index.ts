@@ -8,7 +8,6 @@ import { ToolSchema } from './database/schemas/tool.schema'
 import baseDados from '../database/base.json'
 
 mongoose.connect(databaseUri as string).then(async () => {
-  console.log('Database connect!')
   if (environment === 'dev') {
     const verifyTool = await ToolSchema.find({}).lean()
     if (verifyTool.length === 0) {
@@ -20,7 +19,7 @@ mongoose.connect(databaseUri as string).then(async () => {
     }
   }
 }).catch((error: any) => {
-  console.log('🚀 ~ file: index.ts:13 ~ mongoose.connect ~ error:', error)
+  console.log('🚀 mongoose.connect ~ error:', error)
 })
 
 const PORT = 3000

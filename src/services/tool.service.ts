@@ -1,9 +1,8 @@
 import ToolsRepository from '../database/repositories/tool.repository'
 import { type ITool, type IToolDTO } from '../types/tool/tool.types'
 import { type responseDatabase } from '../utils/responseDatabase'
-import { type BaseService } from './base.service'
 
-class Tool implements BaseService<responseDatabase<IToolDTO> | Array<responseDatabase<IToolDTO>>, ITool | ITool[]> {
+class Tool {
   private readonly Toolservice: ToolsRepository
   constructor () {
     this.Toolservice = new ToolsRepository()
